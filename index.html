@@ -5,6 +5,8 @@
     <title>Creed's Coastal Paradise</title>
     <meta name="description" content="Luxury Coastal Estate VR Experience" />
     <script src="./scripts/aframe.min.js"></script>
+    <script src="./scripts/aframe-extras.min.js"></script>
+    <script src="./scripts/aframe-particle-system-component.min.js"></script>
   </head>
   <body>
     <a-scene>
@@ -15,6 +17,7 @@
         <a-asset-item id="maybach" src=".//models/mercedes-benz_maybach_2022/scene.gltf"></a-asset-item>
         <a-asset-item id="coconut" src=".//models/coconut_tree_low_poly/scene.gltf"></a-asset-item>
         <a-asset-item id="horse" src=".//models/armored_horse/scene.gltf"></a-asset-item>
+        <a-asset id="camel" src=".//models/camel/scene.gltf"></a-asset>
 
         <!-- Texture Assets -->
         <img id="skyTexture" src=".//textures/clear-sunny-sky.jpg" />
@@ -42,19 +45,22 @@
             </a-entity>
 
             <a-entity gltf-model="#horse" scale="9 9 9" position="-13 7.6 -50" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#camel" scale="9 9 9" position="150 0.7 9.5" rotation="0 -135 0"></a-entity>
+            <a-entity gltf-model="#coconut" scale="0.50 0.50 0.50" position="167 0.4 10" rotation="0 45 0"></a-entity>
+            
             
             <a-entity light="type: directional; intensity: 1.5; castShadow: true" position="25 50 -10" shadow-camera-left="-50" shadow-camera-right="50" shadow-camera-top="50" shadow-camera-bottom="-50"></a-entity>
             <a-entity light="type: ambient; intensity: 0.4; color: #87CEEB"></a-entity>
             <a-entity light="type: point; intensity: 1.2; distance: 15; decay: 2" position="0 3 -30"></a-entity>
             
-            <a-entity id="sofa1" position="120 4 -120" rotation="0 -90 0" scale="2 2 2">
-              <a-box width="6" height="1" depth="2" color="#8B5E3C" position="3 0.5 0"></a-box>
-              <a-box width="2" height="1" depth="4" color="#8B5E3C" position="0 0.5 1"></a-box>
-              <a-box width="6" height="1.5" depth="0.2" color="#5C3A21" position="3 1.5 -1.1"></a-box>
+            <a-entity id="sofa1" position="120 4 -120" rotation="0 -90 0" scale="4 4 4">
+              <a-box width="2" height="1" depth="2" color="#8B5E3C" position="2 0.5 0"></a-box>
+              <a-box width="2" height="1" depth="3" color="#8B5E3C" position="0 0.5 0.5"></a-box>
+
               <a-box width="0.2" height="1.5" depth="4" color="#5C3A21" position="-1.1 1.5 1"></a-box>
-              <a-box width="1.8" height="0.6" depth="1.8" color="#A0522D" position="1 1.2 0"></a-box>
+              <a-box width="1.8" height="0.6" depth="1.8" color="#A0522D" position="-0.5 1.2 0"></a-box>
               <a-box width="1.8" height="0.6" depth="1.8" color="#A0522D" position="3 1.2 0"></a-box>
-              <a-box width="1.8" height="0.6" depth="1.8" color="#A0522D" position="5 1.2 0"></a-box>
+              <a-box width="1.8" height="0.6" depth="1.8" color="#A0522D" position="2 1.2 0"></a-box>
               <a-box width="1.8" height="0.6" depth="1.8" color="#A0522D" position="0 1.2 2"></a-box>
             </a-entity>
             
@@ -114,6 +120,15 @@
               </a-entity>
       <a-entity camera="fov: 80" wasd-controls="fly: true; acceleration: 200" position="0 24 80" look-controls></a-entity>
 
+    
+     
+      
+      <a-entity id="ocean" ocean="density:60; width: 50; depth:90; speed: 4" position="100 5 -205"
+                material="color: #9CE3F9; opacity: 0.75; metalness: 0; roughness: 1"
+                rotation="-90 0 0"></a-entity>
+
+
+      <a-entity id="light" light="type: ambient; color: #888"></a-entity>
     </a-scene>
   </body>
 </html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Creed's Coastal Paradise</title>
+    <meta name="description" content="Luxury Coastal Estate VR Experience" />
+    <script src="./scripts/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <!-- Model Assets -->
+        <a-asset-item id="house" src=".//models/house/scene.gltf"></a-asset-item>
+        <a-asset-item id="challenger" src=".//models/dodge_challenger_srt_demon_sdc/scene.gltf"></a-asset-item>
+        <a-asset-item id="maybach" src=".//models/mercedes-benz_maybach_2022/scene.gltf"></a-asset-item>
+        <a-asset-item id="coconut" src=".//models/coconut_tree_low_poly/scene.gltf"></a-asset-item>
+        <a-asset-item id="horse" src=".//models/armored_horse/scene.gltf"></a-asset-item>
+
+        <!-- Texture Assets -->
+        <img id="skyTexture" src=".//textures/clear-sunny-sky.jpg" />
+        <img id="sandTexture" src=".//textures/sand.jpg" crossorigin="anonymous" />
+        <img id="walkwayTexture" src=".//textures/brick.jpg" crossorigin="anonymous" />
+      </a-assets>
+
+      <!-- Environment -->
+      <a-sky src="#skyTexture"></a-sky>
+      
+      <!-- Terrain System -->
+      <a-plane rotation="-90 0 0" width="2500" height="2500" material="src: #sandTexture; repeat: 100 100; metalness: 0.3; roughness: 0.8"position="0 -0.1 0" shadow="receive: true"></a-plane>
+      <!-- Rectangular Walkway Around Mansion -->
+            
+
+            <a-entity gltf-model="#house" scale="4 4 4" position="0 -10 -40" rotation="0 0 0" shadow="cast: true; receive: true"><a-entity light="type: spot; angle: 40; intensity: 0.8; distance: 30" position="-15 8 -20" rotation="-30 0 0" target="#challenger"></a-entity></a-entity>
+            <a-entity id="carShowcase" position="-65 0 -65"><a-entity gltf-model="#challenger" scale="3 3 3" position="15 0.2 5" rotation="0 0 0"></a-entity><a-box width="100" height="0.4" depth="50" material="src: #thatched-grass; repeat: 10 5; metalness: 0.2; roughness: 0.7" position="30 25 5" shadow="cast: true; receive: true"></a-box><a-box color="brown" width="2" height="25" depth="2" position="-15 12.5 -15" shadow="cast: true; receive: true"></a-box><a-box color="brown" width="2" height="25" depth="2" position="65 12.5 -15" shadow="cast: true; receive: true"></a-box><a-box color="brown" width="2" height="25" depth="2" position="-15 12.5 25" shadow="cast: true; receive: false"></a-box><a-box color="brown" width="2" height="25" depth="2" position="75 12.5 25" shadow="cast: true; receive: false"></a-box></a-entity>
+            
+            <a-ring position="67 0.31 -10" rotation="-90 0 0" radius-inner="18" radius-outer="24" material="src: #walkwayTexture; repeat: 10 2; roughness: 0.7; metalness: 0.2" shadow="receive: true"></a-ring>
+            
+            <a-entity id="palmGrove">
+              <a-entity gltf-model="#coconut" scale="0.50 0.50 0.50" position="20 0.4 -34" rotation="0 45 0"></a-entity>
+              <a-entity gltf-model="#coconut" scale="0.50 0.50 0.50" position="50 0.4 -34" rotation="0 45 0"></a-entity>
+              <a-entity gltf-model="#coconut" scale="0.50 0.50 0.50" position="155 0.4 -34" rotation="0 45 0"></a-entity>
+            </a-entity>
+
+            <a-entity gltf-model="#horse" scale="9 9 9" position="-13 7.6 -50" rotation="0 0 0"></a-entity>
+            
+            <a-entity light="type: directional; intensity: 1.5; castShadow: true" position="25 50 -10" shadow-camera-left="-50" shadow-camera-right="50" shadow-camera-top="50" shadow-camera-bottom="-50"></a-entity>
+            <a-entity light="type: ambient; intensity: 0.4; color: #87CEEB"></a-entity>
+            <a-entity light="type: point; intensity: 1.2; distance: 15; decay: 2" position="0 3 -30"></a-entity>
+            
+            <a-entity id="sofa1" position="120 4 -120" rotation="0 -90 0" scale="2 2 2">
+              <a-box width="6" height="1" depth="2" color="#8B5E3C" position="3 0.5 0"></a-box>
+              <a-box width="2" height="1" depth="4" color="#8B5E3C" position="0 0.5 1"></a-box>
+              <a-box width="6" height="1.5" depth="0.2" color="#5C3A21" position="3 1.5 -1.1"></a-box>
+              <a-box width="0.2" height="1.5" depth="4" color="#5C3A21" position="-1.1 1.5 1"></a-box>
+              <a-box width="1.8" height="0.6" depth="1.8" color="#A0522D" position="1 1.2 0"></a-box>
+              <a-box width="1.8" height="0.6" depth="1.8" color="#A0522D" position="3 1.2 0"></a-box>
+              <a-box width="1.8" height="0.6" depth="1.8" color="#A0522D" position="5 1.2 0"></a-box>
+              <a-box width="1.8" height="0.6" depth="1.8" color="#A0522D" position="0 1.2 2"></a-box>
+            </a-entity>
+            
+            <a-entity id="bed" position="40 5 -100">
+              <a-box position="110 14 -100" width="21" height="1" depth="13" color="#3E2723" shadow></a-box>
+              <a-box position="110 15 -100" width="20" height="2" depth="12" color="#F5F5DC" shadow></a-box>
+              <a-box position="103 16 -95" width="3" height="1" depth="2" color="#FFFFFF"></a-box>
+              <a-box position="107 16 -95" width="3" height="1" depth="2" color="#FFFFFF"></a-box>
+            </a-entity>
+
+            <a-entity id="bed" position="247 5 -70" rotation="0 90 0">
+              <a-box position="110 14 -100" width="21" height="1" depth="13" color="#3E2723" shadow></a-box>
+              <a-box position="110 15 -100" width="20" height="2" depth="12" color="#F5F5DC" shadow></a-box>
+              <a-box position="103 16 -95" width="3" height="1" depth="2" color="#FFFFFF"></a-box>
+              <a-box position="107 16 -95" width="3" height="1" depth="2" color="#FFFFFF"></a-box>
+            </a-entity>
+
+            
+       
+            
+              <a-entity id="perimeterWall">
+                <!-- Main defensive walls -->
+                 <!-- left -->
+                <a-box position="-100 5 -155" width="2" height="20" depth="270" 
+                       material="src: #walkwayTexture; repeat: 10 2"
+                       rotation="0 180 0" shadow="cast: true; receive: true"></a-box>
+                       <!-- back -->
+                <a-box position="84 5 -290" width="2" height="20" depth="380" rotation="0 90 0" 
+                       material="src: #walkwayTexture; repeat: 10 2"
+                       rotation="0 90 0" shadow="cast: true; receive: true"></a-box>
+                <!-- right -->
+                <a-box position="275 5 -165" width="2" height="20" depth="280" 
+                       material="src: #walkwayTexture; repeat: 10 2" rotation="0 180 0"
+                       shadow="cast: true; receive: true"></a-box>
+                <!-- front left-->
+                <a-box position="-27.5 8 -10" width="147" height="20" depth="2" rotation="0 -7 0"
+                       material="src: #walkwayTexture; repeat: 15 2"
+                       shadow="cast: true; receive: true"></a-box>
+                <!-- front right -->
+                  <a-box position="185 8 -13" width="185" height="20" depth="2" rotation="0 7 0"
+                  material="src: #walkwayTexture; repeat: 15 2"
+                  shadow="cast: true; receive: true"></a-box>
+            
+                <!-- Watchtowers -->
+                <a-entity position="100 0 -2" rotationn="0 90 0">
+                  <a-cylinder height="20" radius="4" position="0 10 0" 
+                              material="src: #walkwayTexture; repeat: 1 2"></a-cylinder>
+                  <a-cone height="6" radius-bottom="5" radius-top="0" position="0 20 0" 
+                          material="color: #822"></a-cone>
+                </a-entity>
+                <a-entity position="40 0 -2">
+                  <a-cylinder height="20" radius="4" position="0 10 0" 
+                              material="src: #walkwayTexture; repeat: 1 2"></a-cylinder>
+                  <a-cone height="6" radius-bottom="5" radius-top="0" position="0 20 0" 
+                          material="color: #822"></a-cone>
+                </a-entity>
+              </a-entity>
+      <a-entity camera="fov: 80" wasd-controls="fly: true; acceleration: 200" position="0 24 80" look-controls></a-entity>
+
+    </a-scene>
+  </body>
+</html>
